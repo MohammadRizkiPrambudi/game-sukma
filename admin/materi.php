@@ -11,7 +11,7 @@ $data = mysqli_query($koneksi, "SELECT * FROM tbl_edukasi, tbl_kategori WHERE tb
 
 <div class="card">
   <div class="card-header">
-    <h2 class="card-title">Daftar Jawaban</h2>
+    <h2 class="card-title">Daftar Materi</h2>
     <div class="float-right">
       <a href ="?hal=materi&aksi=tambah" class="btn btn-info"><i class="fas fa-plus mr-2"></i>Tambah Materi</a>
     </div>

@@ -4,14 +4,15 @@ include '../koneksi.php';
 
 if (isset($_POST["tambah"])) {
   $soal = $_POST["soal"];
+  $kategori = $_POST['kategori'];
 
-  $query = mysqli_query($koneksi, "INSERT INTO tb_soal VALUES('','$soal')");
+  $query = mysqli_query($koneksi, "INSERT INTO tbl_soal VALUES('','$soal','$kategori')");
 
-  if(mysqli_affected_rows($koneksi) > 0){
+  if($query){
     echo "
 
     <script>
-    alert('soal berhasil disimpan');
+    alert('Soal berhasil disimpan');
     document.location='?hal=soal';
     </script>
     ";
@@ -19,7 +20,7 @@ if (isset($_POST["tambah"])) {
     echo "
 
     <script>
-    alert('soal gagal disimpan');
+    alert('Soal gagal disimpan');
     document.location='?hal=soal';
     </script>
     ";
@@ -40,14 +41,24 @@ if (isset($_POST["tambah"])) {
   <form action="" method="post" id="frmsoal">
     <div class="card-body">
       <div class="form-group">
-        <label for="nama">Soal</label>
+        <label for="soal">Soal</label>
         <input type="text" name="soal" id="soal" class="form-control" autocomplete="off" required>
+      </div>
+      <?php 
+      $data = mysqli_query($koneksi, "SELECT * FROM tbl_kategori"); 
+      ?>
+      <div class="form-group">
+        <label for="kategori">Kategori</label>
+        <select name="kategori" class="form-control">
+          <?php foreach ($data as $key => $d) : ?>
+            <option value="<?= $d['id']; ?>"><?= $d['nama_kategori']; ?></option>
+          <?php endforeach ?>
+        </select>
       </div>
     </div>
     <!-- /.card-body -->
     <div class="card-footer">
       <button type="submit" class="btn btn-info" name="tambah">Simpan</button>
-      <button type="reset" class="btn btn-danger">Hapus</button>
       <a href="?hal=soal" class="btn btn-success">Batal</a>
     </div>
   </form>

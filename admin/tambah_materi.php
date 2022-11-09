@@ -67,7 +67,6 @@ if (isset($_POST["tambah"])) {
     <!-- /.card-body -->
     <div class="card-footer">
       <button type="submit" class="btn btn-info" name="tambah">Simpan</button>
-      <button type="reset" class="btn btn-danger">Hapus</button>
       <a href="?hal=materi" class="btn btn-success">Batal</a>
     </div>
   </form>

@@ -11,10 +11,11 @@ $ambil_data = mysqli_query($koneksi, "SELECT * FROM tbl_soal WHERE id_soal='$id'
 if (isset($_POST["edit"])) {
   $id = $_POST["id_soal"];
   $soal = $_POST["soal"];
+  $kategori = $_POST['kategori'];
 
-  $query = mysqli_query($koneksi, "UPDATE tbl_soal SET soal = '$soal' WHERE id_soal='$id'");
+  $query = mysqli_query($koneksi, "UPDATE tbl_soal SET soal = '$soal', id_kategori = '$kategori' WHERE id_soal='$id'");
 
-  if(mysqli_affected_rows($koneksi) > 0){
+  if($query){
     echo "
 
     <script>
@@ -46,13 +47,22 @@ if (isset($_POST["edit"])) {
   <!-- form start -->
   <form action="" method="post" id="frmsoal">
     <?php foreach ($ambil_data as  $value): ?>
-
-
       <div class="card-body">
         <div class="form-group">
           <label for="nama">Soal</label>
           <input type="text" name="soal" id="soal" class="form-control" autocomplete="off" value="<?= $value["soal"]; ?>">
           <input type="hidden" name="id_soal" id="id_soal" class="form-control" autocomplete="off" value="<?= $id; ?>">
+        </div>
+        <?php 
+        $data = mysqli_query($koneksi, "SELECT * FROM tbl_kategori"); 
+        ?>
+        <div class="form-group">
+          <label for="kategori">Kategori</label>
+          <select name="kategori" class="form-control">
+            <?php foreach ($data as $key => $d) : ?>
+              <option value="<?= $d['id']; ?>" <?= $value['id_kategori'] ==  $d['id'] ? 'selected' : '' ?>><?= $d['nama_kategori']; ?></option>
+            <?php endforeach ?>
+          </select>
         </div>
       </div>
       <!-- /.card-body -->

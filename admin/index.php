@@ -28,9 +28,13 @@ if ($hal == '') {
 }elseif ($hal=='pengguna') {
   $masteraktif1='menu-open';
   $masteraktif2='active';
-  $uAktif = 'active';
+  $pAktif = 'active';
 }elseif ($hal=='tanggapan') {
   $gpAktif = 'active'; 
+}elseif ($hal=='kategori') {
+  $masteraktif1='menu-open';
+  $masteraktif2='active';
+  $kAktif = 'active';
 }
 
 
@@ -137,7 +141,7 @@ if ($hal == '') {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="?hal=materi" class="nav-link <?= $mAktif; ?>">
+                <a href="?hal=kategori" class="nav-link <?= $kAktif; ?>">
                   <i class="nav-icon fas fa-list"></i>
                   <p>
                     Kategori
@@ -145,7 +149,7 @@ if ($hal == '') {
                 </a>
               </li>
               <li class="nav-item">
-                <a href="?hal=materi" class="nav-link <?= $mAktif; ?>">
+                <a href="?hal=pengguna" class="nav-link <?= $pAktif; ?>">
                   <i class="nav-icon fas fa-user"></i>
                   <p>
                     Pengguna
@@ -251,6 +255,22 @@ if ($hal == '') {
           include 'tambah_materi.php';
         }if ($aksi == 'edit') {
           include 'edit_materi.php';
+        }
+      }elseif ($hal=='kategori') {
+        if ($aksi == '') {
+          include 'kategori.php';
+        }if ($aksi == 'tambah') {
+          include 'tambah_kategori.php';
+        }if ($aksi == 'edit') {
+          include 'edit_kategori.php';
+        }
+      }elseif ($hal=='pengguna') {
+        if ($aksi == '') {
+          include 'pengguna.php';
+        }if ($aksi == 'tambah') {
+          include 'tambah_pengguna.php';
+        }if ($aksi == 'edit') {
+          include 'edit_pengguna.php';
         }
 
       }
