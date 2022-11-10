@@ -28,7 +28,7 @@ if(isset($_POST["simpan"])){
       echo "
       <script>
       alert('Terima kasih atas tanggapannya!!');
-      document.location='soalpost.php?halaman=1';
+      document.location='selesai.php';
       </script>
       ";
     }
@@ -39,7 +39,7 @@ if(isset($_POST["simpan"])){
       echo "
       <script>
       alert('Terima kasih atas tanggapannya!!');
-      document.location='soalpost.php?halaman=1';
+      document.location='selesai.php';
       </script>
       ";
     }

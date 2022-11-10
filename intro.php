@@ -48,7 +48,7 @@ if(!isset($_SESSION['login'])){
             <p class="fs-1 text-center fw-bold text-success" data-aos="zoom-in-down" data-aos-offset="0"data-aos-delay="500" data-aos-duration="1000">Athena Versi 1.0</p>
           </div>
           <div class="tombol mt-4 text-center" data-aos="zoom-in-up" data-aos-offset="0"data-aos-delay="600" data-aos-duration="1000" >
-            <a href="soalpre.php?halaman=1" class="btn btn-secondary"><i class="fa fa-play me-2" aria-hidden="true"></i>Mulai</a>
+            <a href="soal.php?halaman=1" class="btn btn-secondary"><i class="fa fa-play me-2" aria-hidden="true"></i>Mulai</a>
           </div>
         </div>
       </div>

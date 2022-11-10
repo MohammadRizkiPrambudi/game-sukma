@@ -25,8 +25,7 @@ $data = mysqli_query($koneksi, "SELECT * FROM tbl_soal, tbl_user, tbl_jawaban WH
             <th>No</th>
             <th>Nama</th>
             <th>Soal</th>
-            <th>Pre Test</th>
-            <th>Post Test</th>
+            <th>Jawaban</th>
           </tr>
         </thead>
         <tbody>
@@ -37,7 +36,6 @@ $data = mysqli_query($koneksi, "SELECT * FROM tbl_soal, tbl_user, tbl_jawaban WH
               <td><?= $result["nama"]; ?></td>
               <td><?= $result['soal']; ?></td>
               <td><?= $result["jawabanpre"]; ?></td>
-              <td><?= $result["jawabanpost"]; ?></td>
             </tr>
             <?php $no++; ?>
           <?php endforeach; ?>
