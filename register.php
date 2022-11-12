@@ -26,7 +26,6 @@ if (isset($_POST["login"])) {
 
   $query = mysqli_query($koneksi, "SELECT * FROM tbl_user WHERE username='$username'");
   $hitung = mysqli_num_rows($query);
-
   if ($hitung > 0) {
     echo "
     <script>
